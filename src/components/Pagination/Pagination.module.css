@@ -1,0 +1,38 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.pageItem {
+  margin: 0 5px;
+}
+
+.pageLink {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 50%;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.pageLink:hover,
+.pageLink:focus,
+.currentPage {
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  width: 30px;
+  height: 30px;
+  background-color: orange;
+  border-radius: 50%;
+}

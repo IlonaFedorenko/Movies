@@ -1,0 +1,13 @@
+.svg {
+  display: inline;
+  align-items: center;
+  width: 20px;
+  padding-right: 10px;
+  color: black;
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .svg {
+    /* width: 18px; */
+  }
+}
