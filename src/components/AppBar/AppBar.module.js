@@ -10,7 +10,8 @@ export const Header = styled.header`
   justify-content: center;
 
   @media screen and (min-width: 320px) and (max-width: 767px) {
-  
+    margin-left: 10px;
+    margin-right: 10px;
     gap: 10px;
   }
 `;

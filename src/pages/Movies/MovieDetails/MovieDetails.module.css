@@ -48,6 +48,52 @@
 }
 
 .link {
-  font-size: 20px;
+  font-size: 18px;
   text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  background-color: orange;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 15px;
+  transition: background-color 0.3s;
+  position: absolute;
+  top: 80px;
+  left: 20px;
+}
+
+.icon {
+  margin-right: 5px;
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .card {
+    display: block;
+    width: 290px;
+    margin-top: 75px;
+  }
+  .imgLink {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 0px;
+  }
+  .title {
+    margin-top: 20px;
+    font-size: 17px;
+  }
+  .text {
+    font-size: 16px;
+  }
+  .text_element {
+    width: 300px;
+  }
 }

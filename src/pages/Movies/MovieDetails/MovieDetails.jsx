@@ -10,6 +10,7 @@ import { getDetailsMovies } from '../../../api/Api';
 import PropTypes from 'prop-types';
 import noPoster from '../../../img/noPoster.jpg';
 import css from './MovieDetails.module.css';
+import { FaArrowLeft } from 'react-icons/fa';
 
 function MovieDetails() {
   const { moviesId } = useParams();
@@ -34,7 +35,7 @@ function MovieDetails() {
 
   const { title, overview, genres, poster_path, vote_average } = movies;
   const userScoreNormalized = (vote_average * 10).toFixed();
-  
+
   console.log(movies.poster_path);
 
   const genresPars = genres.map(({ name, id }) => {
@@ -45,19 +46,21 @@ function MovieDetails() {
   return (
     <>
       <Link className={css.link} to={location.state?.from ?? '/movie'}>
-        Back
+        <FaArrowLeft className={`${css.icon}`} /> Back
       </Link>
       <div className={css.card}>
-        <img
-          className={css.img}
-          src={
-            poster_path
-              ? `https://image.tmdb.org/t/p/w500${poster_path}`
-              : noPoster
-          }
-          alt="Poster"
-          height="400"
-        />
+        <div className={css.imgLink}>
+          <img
+            className={css.img}
+            src={
+              poster_path
+                ? `https://image.tmdb.org/t/p/w500${poster_path}`
+                : noPoster
+            }
+            alt="Poster"
+            height="400"
+          />
+        </div>
         <div className={css.box}>
           <ul className={css.list}>
             <li className={css.item}>
