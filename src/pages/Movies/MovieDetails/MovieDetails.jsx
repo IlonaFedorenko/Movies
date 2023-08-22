@@ -1,7 +1,6 @@
 import React, { useState, useEffect, Suspense } from 'react';
 import {
   useParams,
-  NavLink,
   Link,
   useLocation,
   Outlet,
