@@ -11,6 +11,8 @@ import PropTypes from 'prop-types';
 import noPoster from '../../../img/noPoster.jpg';
 import css from './MovieDetails.module.css';
 import { FaArrowLeft } from 'react-icons/fa';
+import { NavItem } from './MovieDetails.module';
+import ScrollBtn from '../../../components/ScrollBtn/ScrollBtn';
 
 function MovieDetails() {
   const { moviesId } = useParams();
@@ -81,23 +83,32 @@ function MovieDetails() {
         </div>
       </div>
       <div className={css.card_inform}>
-        <h3>Additional iformation</h3>
-        <ul>
+        <h3 className={css.titleInf}>Additional iformation</h3>
+        <ul className={css.listInfo}>
           <li>
-            <NavLink to="cast" state={{ from: location.state?.from }}>
+            <NavItem
+              to="cast"
+              className={css.linkInfo}
+              state={{ from: location.state?.from }}
+            >
               Cast
-            </NavLink>
+            </NavItem>
           </li>
           <li>
-            <NavLink to="reviews" state={{ from: location.state?.from }}>
+            <NavItem
+              to="reviews"
+              className={css.linkInfo}
+              state={{ from: location.state?.from }}
+            >
               Reviews
-            </NavLink>
+            </NavItem>
           </li>
         </ul>
 
         <Suspense fallback={<div>Loading...</div>}>
           <Outlet />
         </Suspense>
+        <ScrollBtn />
       </div>
     </>
   );

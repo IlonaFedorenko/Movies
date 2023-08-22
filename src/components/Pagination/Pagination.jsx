@@ -9,6 +9,21 @@ const Pagination = ({ moviesPerPage, totalMovies, currentPage, paginate }) => {
     pageNumbers.push(i);
   }
 
+  const maxVisibleButtons = 4;
+  let visiblePageNumbers = pageNumbers;
+
+  if (pageNumbers.length > maxVisibleButtons) {
+    const startIndex =
+      currentPage > maxVisibleButtons - 2
+        ? currentPage - maxVisibleButtons + 2
+        : 0;
+
+    visiblePageNumbers = pageNumbers.slice(
+      startIndex,
+      startIndex + maxVisibleButtons - 2
+    );
+  }
+
   return (
     <nav>
       <ul className={css.pagination}>
@@ -24,7 +39,15 @@ const Pagination = ({ moviesPerPage, totalMovies, currentPage, paginate }) => {
           </button>
         </li>
 
-        {pageNumbers.map(number => (
+        {currentPage > maxVisibleButtons - 2 && (
+          <li className={css.pageItem}>
+            <button className={css.pageLink} disabled>
+              ...
+            </button>
+          </li>
+        )}
+
+        {visiblePageNumbers.map(number => (
           <li key={number} className={css.pageItem}>
             <button
               onClick={() => paginate(number)}
@@ -36,6 +59,14 @@ const Pagination = ({ moviesPerPage, totalMovies, currentPage, paginate }) => {
             </button>
           </li>
         ))}
+
+        {currentPage + maxVisibleButtons - 2 < pageNumbers.length && (
+          <li className={css.pageItem}>
+            <button className={css.pageLink} disabled>
+              ...
+            </button>
+          </li>
+        )}
 
         <li className={css.pageItem}>
           <button

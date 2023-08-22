@@ -88,12 +88,31 @@
   }
   .title {
     margin-top: 20px;
-    font-size: 17px;
+    font-size: 20px;
   }
   .text {
-    font-size: 16px;
+    font-size: 18px;
   }
   .text_element {
     width: 300px;
+  }
+  .card_inform {
+    width: 290px;
+  }
+  .titleInf {
+    display: flex;
+    justify-content: center;
+    font-size: 19px;
+  }
+  .listInfo {
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 17px;
+    color: black;
+    margin-bottom: 20px;
+  }
+  .linkInfo {
+    text-decoration: none;
+    
   }
 }

@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import css from './Home.module.css';
 import noPoster from '../../img/noPoster.jpg';
 import Pagination from 'components/Pagination/Pagination';
+import ScrollBtn from '../../components/ScrollBtn/ScrollBtn';
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
@@ -93,6 +94,7 @@ const Home = () => {
           currentPage={currentPage}
           paginate={paginate}
         />
+        <ScrollBtn />
       </div>
     </>
   );

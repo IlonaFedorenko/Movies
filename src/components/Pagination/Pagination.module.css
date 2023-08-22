@@ -4,6 +4,7 @@
   list-style: none;
   padding: 0;
   margin: 20px 0;
+  flex-wrap: wrap;
 }
 
 .pageItem {
@@ -46,8 +47,8 @@
   border-radius: 50%;
   font-size: 20px;
   padding: 0;
-  color: white; /* Цвет иконок */
-  background-color: orange; /* Цвет фона кружка */
+  color: white; 
+  background-color: orange; 
   cursor: pointer;
   transition: background-color 0.3s;
   margin-left: 10px;

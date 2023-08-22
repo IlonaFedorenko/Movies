@@ -3,10 +3,14 @@ import { useParams } from 'react-router-dom';
 import { getCreditsMovies } from '../../../api/Api';
 import noPoster from '../../../img/noPoster.jpg';
 import PropTypes from 'prop-types';
+import css from './Cast.module.css';
+import Pagination from '../../../components/Pagination/Pagination';
 
 function Cast() {
   const { moviesId } = useParams();
   const [movies, setMovies] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [moviesPerPage, setMoviesPerPage] = useState(10);
 
   useEffect(() => {
     const getMovies = async () => {
@@ -20,6 +24,32 @@ function Cast() {
     getMovies();
   }, [moviesId]);
 
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      if (width >= 768 && width <= 1023) {
+        setMoviesPerPage(8);
+      } else if (width >= 320 && width <= 767) {
+        setMoviesPerPage(5);
+      } else {
+        setMoviesPerPage(10);
+      }
+    };
+
+    handleResize();
+
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  const indexOfLastMovie = currentPage * moviesPerPage;
+  const indexOfFirstMovie = indexOfLastMovie - moviesPerPage;
+  const currentCast = movies.slice(indexOfFirstMovie, indexOfLastMovie);
+
+  const paginate = pageNumber => setCurrentPage(pageNumber);
+
   if (movies.length === 0) {
     return;
   }
@@ -28,24 +58,33 @@ function Cast() {
     <>
       <div>
         <ul>
-          {movies.map(({ cast_id, original_name, character, profile_path }) => {
-            return (
-              <li key={cast_id}>
-                <img
-                  src={
-                    profile_path
-                      ? `https://image.tmdb.org/t/p/w500${profile_path}`
-                      : noPoster
-                  }
-                  alt="character"
-                  width="150"
-                />
-                <h3>{original_name}</h3>
-                <p>Character: {character}</p>
-              </li>
-            );
-          })}
+          {currentCast.map(
+            ({ cast_id, original_name, character, profile_path }) => {
+              return (
+                <li key={cast_id} className={css.list}>
+                  <img
+                    className={css.img}
+                    src={
+                      profile_path
+                        ? `https://image.tmdb.org/t/p/w500${profile_path}`
+                        : noPoster
+                    }
+                    alt="character"
+                    width="150"
+                  />
+                  <h3 className={css.title}>{original_name}</h3>
+                  <p className={css.item}>Character: {character}</p>
+                </li>
+              );
+            }
+          )}
         </ul>
+        <Pagination
+          moviesPerPage={moviesPerPage}
+          totalMovies={movies.length}
+          currentPage={currentPage}
+          paginate={paginate}
+        />
       </div>
     </>
   );
