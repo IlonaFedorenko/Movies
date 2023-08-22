@@ -1,10 +1,5 @@
 import React, { useState, useEffect, Suspense } from 'react';
-import {
-  useParams,
-  Link,
-  useLocation,
-  Outlet,
-} from 'react-router-dom';
+import { useParams, Link, useLocation, Outlet } from 'react-router-dom';
 import { getDetailsMovies } from '../../../api/Api';
 import PropTypes from 'prop-types';
 import noPoster from '../../../img/noPoster.jpg';

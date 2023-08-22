@@ -8,6 +8,7 @@ export const Header = styled.header`
   padding: 20px;
   box-shadow: 0 0 8px 0 rgba(66, 68, 90, 0.35);
   justify-content: center;
+  border-radius: 5px;
 
   @media screen and (min-width: 320px) and (max-width: 767px) {
     margin-left: 10px;
