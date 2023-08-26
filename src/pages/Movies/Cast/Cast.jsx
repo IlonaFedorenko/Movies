@@ -72,6 +72,7 @@ function Cast() {
                       }
                       alt="character"
                       width="150"
+                      
                     />
                     <div className={css.textWrap}>
                       <h3 className={css.title}>{original_name}</h3>

@@ -34,7 +34,8 @@
     flex-wrap: wrap;
   }
   .list {
-    width: 170px;
+    margin: 0 10px;
+    width: 150px;
     height: 300px;
     margin-bottom: 40px;
   }
@@ -47,8 +48,11 @@
     display: inline-block;
   }
   .textWrap {
-    width: 200px;
+    width: 150px;
     text-align: center;
+  }
+  .img {
+    height: 225px;
   }
 }
 
@@ -74,5 +78,10 @@
   }
   .div {
     display: inline-block;
+  }
+  .img {
+    
+    height: 250px;
+  
   }
 }

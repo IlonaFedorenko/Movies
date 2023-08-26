@@ -10,7 +10,7 @@ export const NavItem = styled(NavLink)`
 
   &.active {
     color: orange;
-    font-size: 24px;
+    font-size: 22px;
   }
   :hover:not(.active),
   :focus:not(.active) {
@@ -19,5 +19,9 @@ export const NavItem = styled(NavLink)`
 
   @media screen and (min-width: 320px) and (max-width: 767px) {
     font-size: 18px;
+    &.active {
+      color: orange;
+      font-size: 19px;
+    }
   }
 `;
