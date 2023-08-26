@@ -21,14 +21,20 @@
   .item {
     font-size: 16px;
   }
+  .textWrap {
+    width: 200px;
+    text-align: center;
+  }
 }
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
   .box {
-    column-count: 4;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
   }
   .list {
-    width: 100%;
+    width: 170px;
     height: 300px;
     margin-bottom: 40px;
   }
@@ -37,14 +43,23 @@
     margin: 5px;
     font-size: 18px;
   }
+  .div {
+    display: inline-block;
+  }
+  .textWrap {
+    width: 200px;
+    text-align: center;
+  }
 }
 
 @media screen and (min-width: 1024px) {
   .box {
-    column-count: 5;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
   }
   .list {
-    width: 100%;
+    width: 180px;
     height: 300px;
     margin-bottom: 40px;
   }
@@ -56,5 +71,8 @@
   .img {
     width: 170px;
     border-radius: 5px;
+  }
+  .div {
+    display: inline-block;
   }
 }

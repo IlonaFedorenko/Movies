@@ -57,28 +57,32 @@ function Cast() {
   return (
     <>
       <div>
-        <ul className={css.box}>
+        <div className={css.box}>
           {currentCast.map(
             ({ cast_id, original_name, character, profile_path }) => {
               return (
-                <li key={cast_id} className={css.list}>
-                  <img
-                    className={css.img}
-                    src={
-                      profile_path
-                        ? `https://image.tmdb.org/t/p/w500${profile_path}`
-                        : noPoster
-                    }
-                    alt="character"
-                    width="150"
-                  />
-                  <h3 className={css.title}>{original_name}</h3>
-                  <p className={css.item}>Character: {character}</p>
-                </li>
+                <div key={cast_id} className={css.list}>
+                  <div className={css.div}>
+                    <img
+                      className={css.img}
+                      src={
+                        profile_path
+                          ? `https://image.tmdb.org/t/p/w500${profile_path}`
+                          : noPoster
+                      }
+                      alt="character"
+                      width="150"
+                    />
+                    <div className={css.textWrap}>
+                      <h3 className={css.title}>{original_name}</h3>
+                      <p className={css.item}>Character: {character}</p>
+                    </div>
+                  </div>
+                </div>
               );
             }
           )}
-        </ul>
+        </div>
         <Pagination
           moviesPerPage={moviesPerPage}
           totalMovies={movies.length}
