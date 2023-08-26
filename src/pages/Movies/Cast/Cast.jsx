@@ -57,7 +57,7 @@ function Cast() {
   return (
     <>
       <div>
-        <ul>
+        <ul className={css.box}>
           {currentCast.map(
             ({ cast_id, original_name, character, profile_path }) => {
               return (

@@ -20,7 +20,7 @@
   margin-right: auto;
   box-shadow: 0 0 8px 0 rgba(66, 68, 90, 0.35);
   padding: 35px;
-   border-radius: 5px;
+  border-radius: 5px;
 }
 
 .box {
@@ -72,7 +72,7 @@
   margin-right: 5px;
 }
 
-@media screen and (min-width: 320px) and (max-width: 767px) {
+@media screen and (min-width: 320px) and (max-width: 600px) {
   .card {
     display: block;
     width: 290px;
@@ -116,5 +116,138 @@
   }
   .linkInfo {
     text-decoration: none;
+  }
+}
+
+@media screen and (min-width: 601px) and (max-width: 767px) {
+  .card {
+    display: block;
+    width: 390px;
+    margin-top: 75px;
+  }
+
+  .card_inform {
+    width: 390px;
+  }
+
+  .text_element {
+    width: 350px;
+    font-size: 18px;
+  }
+
+  .imgLink {
+    margin-bottom: 19px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .img {
+    width: 320px;
+    height: 100%;
+  }
+
+  .text {
+    font-size: 20px;
+  }
+
+  .titleInf {
+    display: flex;
+    justify-content: center;
+    font-size: 26px;
+  }
+  .listInfo {
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 19px;
+    color: black;
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .card {
+    width: 680px;
+    margin-top: 75px;
+  }
+
+  .card_inform {
+    width: 680px;
+  }
+
+  .text {
+    font-size: 24px;
+  }
+
+  .text_element {
+    width: 380px;
+    font-size: 20px;
+  }
+  .titleInf {
+    display: flex;
+    justify-content: center;
+    font-size: 26px;
+  }
+  .listInfo {
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 19px;
+    color: black;
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1248px) {
+  .card {
+    width: 900px;
+    margin-top: 75px;
+  }
+
+  .card_inform {
+    width: 900px;
+  }
+  .text_element {
+    width: 600px;
+    font-size: 22px;
+  }
+
+  .text {
+    font-size: 22px;
+  }
+
+  .titleInf {
+    display: flex;
+    justify-content: center;
+    font-size: 26px;
+  }
+  .listInfo {
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 19px;
+    color: black;
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (min-width: 1249px) {
+  .card {
+    margin-top: 75px;
+  }
+
+  .text_element {
+    font-size: 18px;
+  }
+
+  .titleInf {
+    display: flex;
+    justify-content: center;
+    font-size: 26px;
+  }
+  .listInfo {
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 19px;
+    color: black;
+    margin-bottom: 20px;
   }
 }

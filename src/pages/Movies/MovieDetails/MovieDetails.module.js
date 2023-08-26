@@ -4,13 +4,13 @@ import styled from 'styled-components';
 export const NavItem = styled(NavLink)`
   display: block;
   text-decoration: none;
-  font-size: 18px;
+  font-size: 24px;
   font-weight: 600;
   color: black;
 
   &.active {
     color: orange;
-    font-size: 18px;
+    font-size: 24px;
   }
   :hover:not(.active),
   :focus:not(.active) {
