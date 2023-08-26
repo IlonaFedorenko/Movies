@@ -53,4 +53,8 @@
     margin: 5px;
     font-size: 18px;
   }
+  .img {
+    width: 170px;
+    border-radius: 5px;
+  }
 }
