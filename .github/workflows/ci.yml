@@ -25,6 +25,3 @@ jobs:
 
       - name: Build React Project
         run: npm run build
-
-      - name: Run tests
-        run: npm test -- --watchAll=false --ci

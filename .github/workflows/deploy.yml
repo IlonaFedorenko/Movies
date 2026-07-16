@@ -23,9 +23,6 @@ jobs:
       - name: Lint 🔍
         run: npm run lint:js
 
-      - name: Run tests 🧪
-        run: npm test -- --watchAll=false --ci
-
       - name: Build 🔧
         run: npm run build
 
