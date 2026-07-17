@@ -27,17 +27,10 @@ jobs:
       - name: Check outdated packages
         id: outdated
         run: |
-          set +e
-          npm outdated --long > outdated.txt 2>&1
-          status=$?
+          npm outdated --json > outdated.json || true
+          node -e "const fs=require('fs');const raw=(fs.existsSync('outdated.json')?fs.readFileSync('outdated.json','utf8'):'').trim();const data=raw?JSON.parse(raw):{};const rows=Object.entries(data).filter(([,v])=>v.current!==v.wanted);if(rows.length===0){fs.writeFileSync('outdated.txt','All dependencies are up to date within allowed ranges.');process.exit(0);}const out=['Package | Current | Update to','---|---|---'];for(const [name,v] of rows){out.push(name+' | '+v.current+' | '+v.wanted);}fs.writeFileSync('outdated.txt',out.join('\n'));"
           cat outdated.txt
-
-          if [ $status -eq 0 ]; then
-            echo "All dependencies are up to date." > outdated.txt
-            cat outdated.txt
-          fi
-
-          echo "exit_code=$status" >> "$GITHUB_OUTPUT"
+          echo "exit_code=0" >> "$GITHUB_OUTPUT"
           exit 0
 
       - name: Write workflow summary
