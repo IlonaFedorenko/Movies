@@ -1,0 +1,55 @@
+name: Weekly stale dependencies check
+
+on:
+  schedule:
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  stale-deps:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check outdated packages
+        id: outdated
+        run: |
+          set +e
+          npm outdated --long > outdated.txt 2>&1
+          status=$?
+          cat outdated.txt
+
+          if [ $status -eq 0 ]; then
+            echo "All dependencies are up to date." > outdated.txt
+            cat outdated.txt
+          fi
+
+          echo "exit_code=$status" >> "$GITHUB_OUTPUT"
+          exit 0
+
+      - name: Write workflow summary
+        if: always()
+        run: |
+          echo "## Weekly stale dependencies report" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          cat outdated.txt >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload report artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: stale-deps-report
+          path: outdated.txt
